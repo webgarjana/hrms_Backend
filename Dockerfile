@@ -1,15 +1,13 @@
-# Use OpenJDK base image
-FROM openjdk:17-jdk-slim
-
-# Set working directory
+# Build stage
+FROM maven:3.9.4-eclipse-temurin-17 AS build
 WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
 
-# Copy JAR file
-COPY target/empsys-0.0.1-SNAPSHOT.jar app.jar
-
-# Expose port (Render uses PORT env variable)
-ENV PORT 8080
-EXPOSE $PORT
-
-# Run the jar
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Runtime stage
+FROM eclipse-temurin:17-jdk
+WORKDIR /app
+COPY --from=build /app/target/<your-app-name>.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","app.jar"]
