@@ -22,7 +22,11 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/api/onboarding")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {
+    "http://localhost:3000",
+    "https://cozy-chebakia-82171b.netlify.app"
+})
+
 
 public class OnboardingController {
 
