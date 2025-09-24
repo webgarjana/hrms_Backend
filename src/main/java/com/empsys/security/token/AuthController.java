@@ -13,7 +13,10 @@ import com.empsys.entity.OnboardingEntity;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {
+    "http://localhost:3000",
+    "https://cozy-chebakia-82171b.netlify.app"
+})
 
 public class AuthController {
 
