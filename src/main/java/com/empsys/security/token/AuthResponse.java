@@ -1,13 +1,13 @@
-package com.empsys.security.token;
+// package com.empsys.security.token;
 
-public class AuthResponse {
-    private String token;
+// public class AuthResponse {
+//     private String token;
 
-    public AuthResponse(String token) {
-        this.token = token;
-    }
+//     public AuthResponse(String token) {
+//         this.token = token;
+//     }
 
-    public String getToken() {
-        return token;
-    }
-}
+//     public String getToken() {
+//         return token;
+//     }
+// }
